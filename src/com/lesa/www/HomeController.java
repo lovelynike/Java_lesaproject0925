@@ -33,7 +33,7 @@ public class HomeController {
 		return "lesa_home";
 	}
 	
-	@RequestMapping("/home")  // 0925 add                     
+	@RequestMapping("/home")  // 0925 add pull                     
 	public String goHome() {		
 		
 		return "lesa_home";

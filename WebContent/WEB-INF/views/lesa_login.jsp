@@ -1,5 +1,6 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
+    <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
 <!DOCTYPE html>
 <html>
 <head>
@@ -21,10 +22,14 @@
 <body>
 
 <jsp:include page="lesa_header.jsp" />
-<%
-	if(session.getAttribute("loginid") == null){
-%>
-	<div class="popup_login">
+
+
+<c:set var = "idid" scope = "session" value = "${loginid}"/>
+<c:choose>
+         <c:when test = "${idid eq null}"> 		
+			
+			
+				<div class="popup_login">
 <form action="member_login" method="post" name="frm">
 		<h2 class="title_popup">로그인</h2>
 		<ul class="login_input">
@@ -50,13 +55,21 @@
 				<a href="#"> <img src="resources/image/icon_pw.png"> 비밀번호 찾기</a>
 			</li>
 		</ul>
-	</div>
-<%}else{ %>		
+	</div>	
+					
+         </c:when>
+         
+         <c:otherwise>   		
+			<input type= "button" value="로그아웃" onclick="javascript:location.href='lesa_logout.jsp'">
 
-<input type= "button" value="로그아웃" onclick="javascript:location.href='lesa_logout.jsp'">
-<%-- <%= session.getAttribute("loginid") %> 님 반갑습니다! --%>
-${loginid } 님 반갑다잉
-<%} %>	
+			${loginid } 님 반갑다잉
+			
+         </c:otherwise>
+      </c:choose>
+
+
+
+
 	
 	<script>
 		$(document).ready(function() {
