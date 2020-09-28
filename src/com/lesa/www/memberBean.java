@@ -7,8 +7,7 @@ public class memberBean {
 	private String pw;
 	private String name;
 	private String bday;
-	private String gender;
-	
+	private String gender;	
 	
 	private String email;
 	private String email1;
@@ -16,33 +15,9 @@ public class memberBean {
 	private String email3;
 
 	private String tel;
-	private String nsubject;
-	private String rdate;
-	private String photo;
 	
-	public memberBean(int idx, String id, String pw, String name, String bday, String gender, String email, String tel,
-			String nsubject, String rdate, String photo, String check00, String check01, String check02, String check03,
-			String level, String extra2, String extra3) {
-		super();
-		this.idx = idx;
-		this.id = id;
-		this.pw = pw;
-		this.name = name;
-		this.bday = bday;
-		this.gender = gender;
-		this.email = email;
-		this.tel = tel;
-		this.nsubject = nsubject;
-		this.rdate = rdate;
-		this.photo = photo;
-		this.check00 = check00;
-		this.check01 = check01;
-		this.check02 = check02;
-		this.check03 = check03;
-		this.level = level;
-		this.extra2 = extra2;
-		this.extra3 = extra3;
-	}
+	private String rdate;
+	private String photo;	
 
 	private String check00;
 	private String check01;
@@ -122,13 +97,7 @@ public class memberBean {
 		this.tel = tel;
 	}
 
-	public String getNsubject() {
-		return nsubject;
-	}
-
-	public void setNsubject(String nsubject) {
-		this.nsubject = nsubject;
-	}
+	
 
 	public String getRdate() {
 		return rdate;
@@ -225,6 +194,30 @@ public class memberBean {
 
 	public void setEmail3(String email3) {
 		this.email3 = email3;
+	}
+	
+	public memberBean(int idx, String id, String pw, String name, String bday, String gender, String email, String tel,
+			String rdate, String photo, String check00, String check01, String check02, String check03,
+			String level, String extra2, String extra3) {
+		super();
+		this.idx = idx;
+		this.id = id;
+		this.pw = pw;
+		this.name = name;
+		this.bday = bday;
+		this.gender = gender;
+		this.email = email;
+		this.tel = tel;
+		
+		this.rdate = rdate;
+		this.photo = photo;
+		this.check00 = check00;
+		this.check01 = check01;
+		this.check02 = check02;
+		this.check03 = check03;
+		this.level = level;
+		this.extra2 = extra2;
+		this.extra3 = extra3;
 	}
 
 

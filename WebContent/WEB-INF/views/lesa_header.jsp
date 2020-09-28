@@ -50,7 +50,7 @@
 					
 			<a href="lesa_logout" class="login">로그아웃</a>
 			<a href="memberupdate.do?id=${idid }" class="my_page" class="my_page">마이 페이지</a>			
-			<a href="go_teacher_insert" class="teacher_insert">강사등록</a>
+			<a href="go_teacher_insert?id=${idid }" class="teacher_insert">강사등록</a>
 			
          </c:otherwise>
       </c:choose>

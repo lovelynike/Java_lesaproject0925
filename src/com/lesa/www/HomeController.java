@@ -215,7 +215,10 @@ public class HomeController {
 	//======================= teacher  ================================================
 	
 	@RequestMapping("/go_teacher_insert")                        
-	public String teacherInsert() {
+	public String teacherInsert(String id, Model model) {
+		memberBean bean = memberdao.getInfo(id);
+		model.addAttribute("getmemId", bean);
+		
 		return "lesa_teacher_insert";
 	}		
 

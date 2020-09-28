@@ -39,7 +39,7 @@ public class memberDao {
 	@Value("#{sql['member.check']}")
 	private String check;
 	
-	//중복확인
+	
 	public int check(String id) {
 
 		return jdbcTmp.queryForInt(check, id);
@@ -76,8 +76,8 @@ public class memberDao {
 	}
 
 	
-	public memberBean get(int idx) {
-		memberBean bean = jdbcTmp.queryForObject(get, new Integer[] { idx }, new memberBeanMapper());
+	public memberBean getInfo(String id) {
+		memberBean bean = jdbcTmp.queryForObject(get, new String[] {id}, new memberBeanMapper());
 		return bean;
 	}
 
@@ -88,7 +88,7 @@ public class memberDao {
 
 			memberBean bean = new memberBean(rs.getInt("idx"), rs.getString("id"), rs.getString("pw"),
 					rs.getString("name"), rs.getString("bday"), rs.getString("gender"), rs.getString("email"),
-					rs.getString("tel"), rs.getString("nsubject"), rs.getString("rdate"), rs.getString("photo"),
+					rs.getString("tel"), rs.getString("rdate"), rs.getString("photo"),
 					rs.getString("check00"), rs.getString("check01"), rs.getString("check02"), rs.getString("check03"),
 					rs.getString("level"), rs.getString("extra2"), rs.getString("extra3"));
 
