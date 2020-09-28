@@ -172,7 +172,7 @@ public class HomeController {
 		return memberdao.check(id);
 	}
 	
-	//======================= login  ===============
+	//======================= login  ================================================
 	@RequestMapping("/go_login")                        
 	public String login() {
 		return "lesa_login";
@@ -211,5 +211,12 @@ public class HomeController {
 		rv.setExposeModelAttributes(false);
 		return rv;	
 	}
+	
+	//======================= teacher  ================================================
+	
+	@RequestMapping("/go_teacher_insert")                        
+	public String teacherInsert() {
+		return "lesa_teacher_insert";
+	}		
 
 }

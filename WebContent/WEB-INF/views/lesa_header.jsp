@@ -26,12 +26,12 @@
 	
 <header>
 
-	<h1 class="logo">
+		<h1 class="logo">
 			<a href="home"><img src="resources/image/logo2.PNG"></a>
 		</h1>
-		<div class="nav">
+	<div class="nav">
 
-		</div>
+		
 
 
  <c:set var = "idid" scope = "session" value = "${loginid}"/>
@@ -50,15 +50,15 @@
 					
 			<a href="lesa_logout" class="login">로그아웃</a>
 			<a href="memberupdate.do?id=${idid }" class="my_page" class="my_page">마이 페이지</a>			
-			<a href="lesa_teacher_insert.jsp" class="teacher_insert">강사등록</a>
+			<a href="go_teacher_insert" class="teacher_insert">강사등록</a>
 			
          </c:otherwise>
       </c:choose>
       
-      <a href="/www" class="home">HOME</a>
+      <a href="home" class="home">HOME</a>
       <a href="lesa_asked_question.jsp" class="service_center">고객센터</a>
       
-		
+	</div>
 </header>
 
 </body>
