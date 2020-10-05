@@ -67,8 +67,7 @@
 					</td>
 				<tr>
 					<th>이름</th>
-					<td>
-						
+					<td>						
 						<input type="text" class="input_member" name="name" >
 					</td>
 				</tr>
@@ -129,33 +128,7 @@
 	</form>
 </section>
 
-
-<!-- 
-<table>
-		<tr>
-			<td>아이디</td>	<td><input type = "text" class = "id" name = "id" placeholder = "아이디"></td>	<td><input type = "button" id = "check" value = "중복확인"></td>
-		</tr>
-		<tr>
-			<td><div style = "text-align: right;">*</div></td>	<td><div class = "showCheck"></div></td>
-		</tr>
-		<tr>
-			<td>비밀번호</td>	<td><input type = "text" class = "pw" name = "pw" placeholder = "비밀번호"></td>
-		</tr>
-		<tr>
-			<td>이름</td>		<td><input type = "text" class = "name" name = "name" placeholder = "이름"></td>
-		</tr>
-		<tr>
-			<td>휴대폰</td>	<td><input type = "text" class = "phone" name = "phone" placeholder = "휴대폰"></td>
-		</tr>
-		<tr>
-			<td>이메일</td>	<td><input type = "text" class = "email" name = "email" placeholder = "이메일"></td>
-		</tr>
-		<tr>
-			<td></td>	<td><input type = "button" value = "회원가입" onclick = "signUp()"></td>
-		</tr>			
-	</table>
- -->
-
+<!-- =========================================== js  ============ -->
 	<script type="text/javascript">
 		$(".d_email").change(function() {
 			var optioniValue = $(".d_email option:selected").val();

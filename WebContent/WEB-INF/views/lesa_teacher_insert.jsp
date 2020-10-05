@@ -1,5 +1,5 @@
-<%@ page language="java" contentType="text/html; charset=euc-kr"
-	pageEncoding="euc-kr"%>
+<%@ page language="java" contentType="text/html; charset=UTF-8"
+	pageEncoding="UTF-8"%>
 	
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
 
@@ -31,219 +31,225 @@
 
 	<jsp:include page="lesa_header.jsp" />
 	
-	${loginid} ´Ô ¹İ°©½À´Ï´Ù °­»ç µî·Ï ÇÏ·¯ ¿À¼Ì¾î¿ä?
+	${loginid} ë‹˜ ë°˜ê°‘ìŠµë‹ˆë‹¤ ê°•ì‚¬ ë“±ë¡ í•˜ëŸ¬ ì˜¤ì…¨ì–´ìš”?
 	
 <form action="teacherinsertok.do" name="frm">
 	
 	
-		<h2 class="title_sub">±âº»Á¤º¸</h2>
+		<h2 class="title_sub">ê¸°ë³¸ì •ë³´</h2>
 		
 		<table class="write_tb">
-			<%-- <col style="width: 20%;"> --%>
+			<col style="width: 20%;">
 			<tbody>
 				<tr>
-					<td>±âº»»çÁø</td>
+					<td>ê¸°ë³¸ì‚¬ì§„</td>
 					<td>
 						<img src="resources/image/noPic.jpg"> <br>
 						<input type="file" name="photo">
-						<input type="button" value="¼öÁ¤" class="btn_in_update">
-						<input type="button" value="»èÁ¦" class="btn_in_delete">
-						<p>¡Ø ¿¹½Ã)»çÁøÀº 1MÀÌÇÏÀÇ png, jpg ÆÄÀÏ¸¸ °¡´ÉÇÏ¸ç, »çÁøÀº 114x134¿¡ ÃÖÀûÈ­ µÇ¾î ÀÖ½À´Ï´Ù.</p>
+						<input type="button" value="ìˆ˜ì •" class="btn_in_update">
+						<input type="button" value="ì‚­ì œ" class="btn_in_delete">
+						<p>â€» ì˜ˆì‹œ)ì‚¬ì§„ì€ 1Mì´í•˜ì˜ png, jpg íŒŒì¼ë§Œ ê°€ëŠ¥í•˜ë©°, ì‚¬ì§„ì€ 114x134ì— ìµœì í™” ë˜ì–´ ìˆìŠµë‹ˆë‹¤.</p>
 					</td>
 				</tr>
 				<tr>
-					<td>ÀÌ¸§</td>
+					<td>ì´ë¦„</td>
 					<td>${getmemId.name }</td>
 				</tr>
 				<tr>
-					<td>ÁÖ¼Ò</td>
-					<td>ºÎ»ê µ¿·¡±¸ ¾È¶ôµ¿</td>
+					<td>ì£¼ì†Œ</td>
+					<td>ë¶€ì‚° ë™ë˜êµ¬ ì•ˆë½ë™</td>
 				</tr>
 				<tr>
-					<td>ÀüÈ­¹øÈ£</td>
+					<td>ì „í™”ë²ˆí˜¸</td>
 					<td>${getmemId.tel }</td>
 				</tr>
 				
 				<tr>
-					<td>ÀÌ¸ŞÀÏ</td>
+					<td>ì´ë©”ì¼</td>
 					<td>${getmemId.email }</td>
 				</tr>
 			</tbody>
 		</table>
 	
-		<h2 class="title_sub">°­»ç Á¤º¸</h2>
+		<h2 class="title_sub">ê°•ì‚¬ ì •ë³´</h2>
 		
 		<table class="write_tb">
 			<tbody>
 				<col style="width: 20%;">
 				<tr>
-					<td>°­ÀÇ Á¦¸ñ</td>
+					<td>ê°•ì˜ ì œëª©</td>
 					<td>
 						<input type="text" style="width: 500px" name="teachtitle">
 					</td>
 				</tr>
 				<tr>
-					<td>Èñ¸Á °­ÀÇ ºĞ¾ß</td>
+					<td>í¬ë§ ê°•ì˜ ë¶„ì•¼</td>
 					<td class="d_radio">
-						<input type="radio" value="game" id="kategorie1" name="kategorie"> 
-						<label for="kategorie1">°ÔÀÓ</label>
-						<input type="radio" value="music" id="kategorie2" name="kategorie">
-						<label for="kategorie2">À½¾Ç</label> 
-						<input type="radio" value="sports" id="kategorie3" name="kategorie"> 
-						<label for="kategorie3">¿îµ¿</label>
-						<input type="radio" value="computer" id="kategorie4" name="kategorie">
-						<label for="kategorie4">ÄÄÇ»ÅÍ</label> 
-						<input type="radio" value="cook" id="kategorie5" name="kategorie"> 
-						<label for="kategorie5">¿ä¸®</label>
-						<input type="radio" value="arts" id="kategorie6" name="kategorie">
-						<label for="kategorie6">¹Ì¼ú</label> 
-						<input type="radio" value="beauty" id="kategorie7" name="kategorie">
-						 <label for="kategorie7">¹Ì¿ë</label>
-						<input type="radio" value="drive" id="kategorie8" name="kategorie">
-						<label for="kategori8">¿îÀü</label>
-						 <input type="radio" value="animal" id="kategorie9" name="kategorie"> 
-						<label for="kategorie9">µ¿¹°</label>
-						<input type="radio" value="plant" id="kategorie10" name="kategorie">
-						<label for="kategorie10">½Ä¹°</label>
+						<input type="radio" value="game" id="kategorie1" name="subject"> 
+						<label for="kategorie1">ê²Œì„</label>
+						<input type="radio" value="music" id="kategorie2" name="subject">
+						<label for="kategorie2">ìŒì•…</label> 
+						<input type="radio" value="sports" id="kategorie3" name="subject"> 
+						<label for="kategorie3">ìš´ë™</label>
+						<input type="radio" value="computer" id="kategorie4" name="subject">
+						<label for="kategorie4">ì»´í“¨í„°</label> 
+						<input type="radio" value="cook" id="kategorie5" name="subject"> 
+						<label for="kategorie5">ìš”ë¦¬</label>
+						<input type="radio" value="arts" id="kategorie6" name="subject">
+						<label for="kategorie6">ë¯¸ìˆ </label> 
+						<input type="radio" value="beauty" id="kategorie7" name="subject">
+						 <label for="kategorie7">ë¯¸ìš©</label>
+						<input type="radio" value="drive" id="kategorie8" name="subject">
+						<label for="kategori8">ìš´ì „</label>
+						 <input type="radio" value="animal" id="kategorie9" name="subject"> 
+						<label for="kategorie9">ë™ë¬¼</label>
+						<input type="radio" value="plant" id="kategorie10" name="subject">
+						<label for="kategorie10">ì‹ë¬¼</label>
 					</td>
 				</tr>
 				<tr class="job">
-					<td>¼¼ºÎºĞ¾ß</td>
+					<td>ì„¸ë¶€ë¶„ì•¼</td>
 					<td class="game d_radio">
-						<input type="radio" value="·Ñ" id="work1" name="work"> 
-						<label for="work1">·Ñ</label>
-						<input type="radio" value="¿À¹ö¿öÄ¡" id="work2" name="work"> 
-						<label for="work2">¿À¹ö¿öÄ¡</label>
-						<input type="radio" value="¹è±×" id="work3" name="work">
-						<label for="work3">¹è±×</label>
+						<input type="radio" value="ë¡¤" id="work1" name="subject2"> 
+						<label for="work1">ë¡¤</label>
+						<input type="radio" value="ì˜¤ë²„ì›Œì¹˜" id="work2" name="subject2"> 
+						<label for="work2">ì˜¤ë²„ì›Œì¹˜</label>
+						<input type="radio" value="ë°°ê·¸" id="work3" name="subject2">
+						<label for="work3">ë°°ê·¸</label>
 					</td>
 					<td class="music d_radio">
-						<input type="radio" value="Å¸¾Ç±â" id="work4" name="work"> 
-						<label for="work4">Å¸¾Ç±â</label> 
-						<input type="radio" value="Çö¾Ç±â" id="work5" name="work"> 
-						<label for="work5">Çö¾Ç±â</label>
-						<input type="radio" value="°ü¾Ç±â" id="work6" name="work">
-						<label for="work6">°ü¾Ç±â</label>
+						<input type="radio" value="íƒ€ì•…ê¸°" id="work4" name="subject2"> 
+						<label for="work4">íƒ€ì•…ê¸°</label> 
+						<input type="radio" value="í˜„ì•…ê¸°" id="work5" name="subject2"> 
+						<label for="work5">í˜„ì•…ê¸°</label>
+						<input type="radio" value="ê´€ì•…ê¸°" id="work6" name="subject2">
+						<label for="work6">ê´€ì•…ê¸°</label>
 					</td>
 					<td class="sports d_radio">
-						<input type="radio" value="Çï½º" id="work7" name="work">
-						<label for="work7">Çï½º</label> 
-						<input type="radio" value="¿ä°¡" id="work8" name="work">
-						<label for="work8">¿ä°¡</label>
-						<input type="radio" value="±¸±âÁ¾¸ñ" id="work9" name="work"> 
-						<label for="work9">±¸±âÁ¾¸ñ</label>
+						<input type="radio" value="í—¬ìŠ¤" id="work7" name="subject2">
+						<label for="work7">í—¬ìŠ¤</label> 
+						<input type="radio" value="ìš”ê°€" id="work8" name="subject2">
+						<label for="work8">ìš”ê°€</label>
+						<input type="radio" value="êµ¬ê¸°ì¢…ëª©" id="work9" name="subject2"> 
+						<label for="work9">êµ¬ê¸°ì¢…ëª©</label>
 					</td>
 					<td class="computer d_radio">
-						<input type="radio" value="¾Èµå·ÎÀÌµå" id="work10" name="work"> 
-						<label for="work10">¾Èµå·ÎÀÌµå</label> 
-						<input type="radio" value="À¥" id="work11" name="work">
-						<label for="work11">À¥</label> 
-						<input type="radio" value="¾ÆÀÌÆù" id="work12" name="work">
-						<label for="work12">¾ÆÀÌÆù</label>
+						<input type="radio" value="ì•ˆë“œë¡œì´ë“œ" id="work10" name="subject2"> 
+						<label for="work10">ì•ˆë“œë¡œì´ë“œ</label> 
+						<input type="radio" value="ì›¹" id="work11" name="subject2">
+						<label for="work11">ì›¹</label> 
+						<input type="radio" value="ì•„ì´í°" id="work12" name="subject2">
+						<label for="work12">ì•„ì´í°</label>
 					</td>
 					<td class="cook d_radio">
-						<input type="radio" value="ÇÑ½Ä" id="work13" name="work">
-						<label for="work13">ÇÑ½Ä</label>
-						<input type="radio" value="¾ç½Ä" id="work14" name="work">
-						<label for="work14">¾ç½Ä</label> 
-						<input type="radio" value="Á¦°ú" id="work15" name="work">
-						<label for="work15">Á¦°ú</label>
+						<input type="radio" value="í•œì‹" id="work13" name="subject2">
+						<label for="work13">í•œì‹</label>
+						<input type="radio" value="ì–‘ì‹" id="work14" name="subject2">
+						<label for="work14">ì–‘ì‹</label> 
+						<input type="radio" value="ì œê³¼" id="work15" name="subject2">
+						<label for="work15">ì œê³¼</label>
 					</td>
 					<td class="art d_radio">
-						<input type="radio" value="¼­¾çÈ­" id="work16" name="work"> 
-						<label for="work16">¼­¾çÈ­</label> 
-						<input type="radio" value="µ¿¾çÈ­" id="work17" name="work"> 
-						<label for="work17">µ¿¾çÈ­</label>
-						<input type="radio" value="À¯Ã¤È­" id="work18" name="work">
-						<label for="work18">Á¶¼Ò</label>
+						<input type="radio" value="ì„œì–‘í™”" id="work16" name="subject2"> 
+						<label for="work16">ì„œì–‘í™”</label> 
+						<input type="radio" value="ë™ì–‘í™”" id="work17" name="subject2"> 
+						<label for="work17">ë™ì–‘í™”</label>
+						<input type="radio" value="ìœ ì±„í™”" id="work18" name="subject2">
+						<label for="work18">ì¡°ì†Œ</label>
 					</td>
 				</tr>
 				<tr>
-					<td>°­ÀÇ ÇüÅÂ</td>
+					<td>ê°•ì˜ í˜•íƒœ</td>
 					<td class="d_radio">
 						<input type="radio" value="t" id="type1" name="lectype"> 
-						<label for="type1">(°­»ç´ÔÀÌ ¿øÇÏ´Â)Àå¼Ò</label>
+						<label for="type1">(ê°•ì‚¬ë‹˜ì´ ì›í•˜ëŠ”)ì¥ì†Œ</label>
 						<input type="radio" value="s" id="type2" name="lectype">
-						<label for="type2">(¼ö°­»ıÀÌ ¿øÇÏ´Â)Àå¼Ò</label> 
+						<label for="type2">(ìˆ˜ê°•ìƒì´ ì›í•˜ëŠ”)ì¥ì†Œ</label> 
 						<input type="radio" value="o" id="type3" name="lectype"> 
-						<label for="type3">¿Â¶óÀÎ</label>
+						<label for="type3">ì˜¨ë¼ì¸</label>
 					</td>
 				</tr>
 				<tr class="area">
-					<td>Èñ¸ÁÁö¿ª</td>
+					<td>í¬ë§ì§€ì—­</td>
 					<td>
-						<select class="areaCombo input_member input_select" name ="maplist">
-							<option>»ó¼¼Áö¿ª</option>
-							<option value="°­¼­±¸">°­¼­±¸</option>
-							<option value="±İÁ¤±¸">±İÁ¤±¸</option>
-							<option value="±âÀå±º">±âÀå±º</option>
-							<option value="³²±¸">³²±¸</option>
-							<option value="µ¿±¸">µ¿±¸</option>
-							<option value="µ¿·¡±¸">µ¿·¡±¸</option>
-							<option value="ºÎ»êÁø±¸">ºÎ»êÁø±¸</option>
-							<option value="ºÏ±¸">ºÏ±¸</option>
-							<option value="»ç»ó±¸">»ç»ó±¸</option>
-							<option value="»çÇÏ±¸">»çÇÏ±¸</option>
-							<option value="¼­±¸">¼­±¸</option>
-							<option value="¼ö¿µ±¸">¼ö¿µ±¸</option>
-							<option value="¿¬Á¦±¸">¿¬Á¦±¸</option>
-							<option value="¿µµµ±¸">¿µµµ±¸</option>
-							<option value="Áß±¸">Áß±¸</option>
-							<option value="ÇØ¿î´ë±¸">ÇØ¿î´ë±¸</option>
-							<option value="ÀüÃ¼">ÀüÃ¼</option>
+						<select class="areaCombo input_member input_select" name ="taddress">
+							<option>ìƒì„¸ì§€ì—­</option>
+							<option value="ê°•ì„œêµ¬">ê°•ì„œêµ¬</option>
+							<option value="ê¸ˆì •êµ¬">ê¸ˆì •êµ¬</option>
+							<option value="ê¸°ì¥êµ°">ê¸°ì¥êµ°</option>
+							<option value="ë‚¨êµ¬">ë‚¨êµ¬</option>
+							<option value="ë™êµ¬">ë™êµ¬</option>
+							<option value="ë™ë˜êµ¬">ë™ë˜êµ¬</option>
+							<option value="ë¶€ì‚°ì§„êµ¬">ë¶€ì‚°ì§„êµ¬</option>
+							<option value="ë¶êµ¬">ë¶êµ¬</option>
+							<option value="ì‚¬ìƒêµ¬">ì‚¬ìƒêµ¬</option>
+							<option value="ì‚¬í•˜êµ¬">ì‚¬í•˜êµ¬</option>
+							<option value="ì„œêµ¬">ì„œêµ¬</option>
+							<option value="ìˆ˜ì˜êµ¬">ìˆ˜ì˜êµ¬</option>
+							<option value="ì—°ì œêµ¬">ì—°ì œêµ¬</option>
+							<option value="ì˜ë„êµ¬">ì˜ë„êµ¬</option>
+							<option value="ì¤‘êµ¬">ì¤‘êµ¬</option>
+							<option value="í•´ìš´ëŒ€êµ¬">í•´ìš´ëŒ€êµ¬</option>
+							<option value="ì „ì²´">ì „ì²´</option>
 						</select>
 					</td>
 				</tr>
 				<tr>
-					<td>Èñ¸Á½Ã±Ş</td>
+					<td>í¬ë§ì‹œê¸‰</td>
 					<td>
-						<input type="text" class="money input_member input_title" name = "sal" style="width: 70px">&nbsp;¸¸¿ø&nbsp;
-						<input type="checkbox" value="ÃßÈÄÇÕÀÇ" name="agreement" id="agreement1" onclick="moneyCheck()">
-						<label for="agreement1">ÃßÈÄÇÕÀÇ</label>
+						<input type="text" class="money input_member input_title" name = "sal" style="width: 70px">&nbsp;ë§Œì›&nbsp;
+						<input type="checkbox" value="ì¶”í›„í•©ì˜" name="agreement" id="agreement1" onclick="moneyCheck()">
+						<label for="agreement1">ì¶”í›„í•©ì˜</label>
 					</td>
 				</tr>
 			</tbody>
 		</table>
 		
 		
-	<h2 class="title_sub">°æ·Â»çÇ×</h2>
+	<h2 class="title_sub">ê²½ë ¥ì‚¬í•­</h2>
 		<table class="write_tb">
 			<tbody>
 				<col style="width: 20%;">
 				<tr>
-					<td>ÃÑ °æ·Â±â°£</td>
+					<td>ì´ ê²½ë ¥ê¸°ê°„</td>
 					<td>
-						<select class="input_member input_select" name = "workendday">
-							<option>³â¼ö¼±ÅÃ</option>
-							<option value="3">3°³¿ù</option>
-							<option value="6">6°³¿ù</option>
-							<option value="12">1³â</option> <!-- for¹®À¸·Î ´ëÃ¼ -->
-							<option value="240">20³â</option>
-						</select> &nbsp;ÀÌ»ó
+						<select class="input_member input_select" name = "careertime">
+							<option>ë…„ìˆ˜ì„ íƒ</option>
+							<option value="3">3ê°œì›”</option>
+							<option value="6">6ê°œì›”</option>
+							<option value="12">1ë…„</option> <!-- forë¬¸ìœ¼ë¡œ ëŒ€ì²´ -->
+							<option value="240">20ë…„</option>
+						</select> &nbsp;ì´ìƒ
 					</td>
 				</tr>
 				<tr>
-					<td>°æ·Â»çÇ×</td>
-					<td class="career">±Ù¹«Ã³¸í&nbsp;
-						<input type="text" class="title input_member" style="width: 300px" name="worktitle">
-						Á÷±Ş&nbsp;
-						<input type="text" class="title input_member" style="width: 100px;" name="workname"><br>
-						±Ù¹«±â°£&nbsp;
-						<input type="text" class="title input_member" style="width: 50px;" name="workday">°³¿ù<br>
-						´ã´ç¾÷¹«&nbsp;
-						<input type="text" class="title input_member" style="width: 800px;" name="worklist"><br>
+					<td>ê²½ë ¥ì‚¬í•­</td>
+					<td class="career">ê·¼ë¬´ì²˜ëª…&nbsp;
+						<input type="text" class="title input_member" style="width: 300px" name="workplace">
+						ì§ê¸‰&nbsp;
+						<input type="text" class="title input_member" style="width: 100px;" name="position"><br>
+						ê·¼ë¬´ì‹œì‘ì¼&nbsp;
+						<input type="text" class="title input_member" style="width: 50px;" name="workstart">ê°œì›”<br>
+						ê·¼ë¬´ì¢…ë£Œì¼&nbsp;
+						<input type="text" class="title input_member" style="width: 50px;" name="workend">ê°œì›”<br>
+						ë‹´ë‹¹ì—…ë¬´&nbsp;
+						<input type="text" class="title input_member" style="width: 800px;" name="task"><br>
+						
 						<p class="example">
-							¿¹) ¿Ü±¹¾î(¿µ¾î) °­»ç·Î ±Ù¹«Çß½À´Ï´Ù. È¸È­, µ¶ÇØ, ¹®¹ıÀ» À§ÁÖ·Î ¼Ò¼ö ½ºÅÍµğ ±×·ìÀ» °¡¸£ÃÆ½À´Ï´Ù.
+							ì˜ˆ) ì™¸êµ­ì–´(ì˜ì–´) ê°•ì‚¬ë¡œ ê·¼ë¬´í–ˆìŠµë‹ˆë‹¤. íšŒí™”, ë…í•´, ë¬¸ë²•ì„ ìœ„ì£¼ë¡œ ì†Œìˆ˜ ìŠ¤í„°ë”” ê·¸ë£¹ì„ ê°€ë¥´ì³¤ìŠµë‹ˆë‹¤.
 						</p>
-						»ó¼¼°æ·Â&nbsp;
+						
+						ìƒì„¸ê²½ë ¥&nbsp;
 						<textarea class="textarea" name="workmedal"></textarea>
+						
 						<p class="example">
-							¿¹) 2007. 12 ¿µ¾î¸»ÇÏ±â °æ½Ã´ëÈ¸ ´ë»ó
+							ì˜ˆ) 2007. 12 ì˜ì–´ë§í•˜ê¸° ê²½ì‹œëŒ€íšŒ ëŒ€ìƒ
 						</p>
-						µ¿¿µ»ó ¸µÅ©&nbsp;
-						<input type="text" class="title input_member" style="width: 500px" name="midialink">
+						
+						ë™ì˜ìƒ ë§í¬&nbsp;
+						<input type="text" class="title input_member" style="width: 500px" name="medialink">
 						<p class="example">
-							¡Ø µ¿¿µ»ó ¸µÅ© : µ¿¿µ»ó ÇÁ·ÎÇÊ, °­ÀÇ»ùÇÃ µî ÀÚ½ÅÀ» Ç¥ÇöÇÒ ¼ö ÀÖ´Â µ¿¿µ»óÀ» ¸µÅ©ÇØÁÖ¼¼¿ä.
+							â€» ë™ì˜ìƒ ë§í¬ : ë™ì˜ìƒ í”„ë¡œí•„, ê°•ì˜ìƒ˜í”Œ ë“± ìì‹ ì„ í‘œí˜„í•  ìˆ˜ ìˆëŠ” ë™ì˜ìƒì„ ë§í¬í•´ì£¼ì„¸ìš”.
 						</p>
 					</td>
 				</tr>
@@ -251,18 +257,20 @@
 		</table>
 		
 		<div class="btn_area">
-			<%-- <input type="hidden" name="memberid" value = "<%=memberid%>"> --%>
-			<input type="button" value="°­»çµî·Ï" class="btn_ok" onclick="reg()">
-			<input type="reset" value="Ãë¼Ò" class="btn_cancel">
+			<input type="hidden" name="id" value = "${loginid}">
+			<input type="button" value="ê°•ì‚¬ë“±ë¡" class="btn_ok" onclick="reg()">
+			<input type="reset" value="ì·¨ì†Œ" class="btn_cancel">
 		</div>
 	
 </form>
 
 
 	<script>
-	function reg(){				
+	function reg(){	
+		frm.action="teacher_insert";			
 		frm.submit();
 	}
+
 	
 	
 	</script>
@@ -274,55 +282,55 @@
 			$(".areaCombo").hide();
 		});
 		
-		$("input[name=kategorie]").change(function() {
+		$("input[name=subject]").change(function() {
 			var radoiValue = $(this).val();
-			var idx = $("input[name=kategorie]").index(this);
+			var idx = $("input[name=subject]").index(this);
 			if (radoiValue == "game") {
 				$(".job").show();
 				$(".job .d_radio").hide();
 				$(".job .d_radio").eq(idx).show();
-				$("input:radio[name='work']").prop("checked", false);
+				$("input:radio[name='subject2']").prop("checked", false);
 			} else if (radoiValue == "music") {
 				$(".job").show();
 				$(".job .d_radio").hide();
 				$(".job .d_radio").eq(idx).show();
-				$("input:radio[name='work']").prop("checked", false);
+				$("input:radio[name='subject2']").prop("checked", false);
 			} else if (radoiValue == "sports") {
 				$(".job").show();
 				$(".job .d_radio").hide();
 				$(".job .d_radio").eq(idx).show();
-				$("input:radio[name='work']").prop("checked", false);
+				$("input:radio[name='subject2']").prop("checked", false);
 			} else if (radoiValue == "computer") {
 				$(".job").show();
 				$(".job .d_radio").hide();
 				$(".job .d_radio").eq(idx).show();
-				$("input:radio[name='work']").prop("checked", false);
+				$("input:radio[name='subject2']").prop("checked", false);
 			} else if (radoiValue == "cook") {
 				$(".job").show();
 				$(".job .d_radio").hide();
 				$(".job .d_radio").eq(idx).show();;
-				$("input:radio[name='work']").prop("checked", false);
+				$("input:radio[name='subject2']").prop("checked", false);
 			} else if (radoiValue == "arts") {
 				$(".job").show();
 				$(".job .d_radio").hide();
 				$(".job .d_radio").eq(idx).show();
-				$("input:radio[name='work']").prop("checked", false);
+				$("input:radio[name='subject2']").prop("checked", false);
 			} else if (radoiValue == "beauty") {
 				$(".job").hide();
 				$(".job .d_radio").hide();
-				$("input:radio[name='work']").prop("checked", false);
+				$("input:radio[name='subject2']").prop("checked", false);
 			} else if (radoiValue == "drive") {
 				$(".job").hide();
 				$(".job .d_radio").hide();
-				$("input:radio[name='work']").prop("checked", false);
+				$("input:radio[name='subject2']").prop("checked", false);
 			} else if (radoiValue == "animal") {
 				$(".job").hide();
 				$(".job .d_radio").hide();
-				$("input:radio[name='work']").prop("checked", false);
+				$("input:radio[name='subject2']").prop("checked", false);
 			} else if (radoiValue == "plant") {
 				$(".job").hide();
 				$(".job .d_radio").hide();
-				$("input:radio[name='work']").prop("checked", false);
+				$("input:radio[name='subject2']").prop("checked", false);
 			}
 		});
 		$("input[name=lectype]").change(function() {

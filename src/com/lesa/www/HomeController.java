@@ -25,7 +25,9 @@ public class HomeController {
 	@Autowired
 	private hopelecDao hopelecdao;  
 	@Autowired
-	private memberDao memberdao;     
+	private memberDao memberdao;
+	@Autowired
+	private teacherDao teacherdao;
 
 	@RequestMapping(value = "/", method = RequestMethod.GET)
 	public String home(Model model) {
@@ -220,6 +222,36 @@ public class HomeController {
 		model.addAttribute("getmemId", bean);
 		
 		return "lesa_teacher_insert";
-	}		
+	}
+	
+	@RequestMapping("/teacher_insert")
+	public RedirectView teacherinsert(teacherBean bean) {
+		teacherdao.teacherinsert(bean);
+		
+		RedirectView rv = new RedirectView("lesa_teacher_list");
+		rv.setExposeModelAttributes(false);
+		return rv;	
+	}
+	
+	@RequestMapping("/lesa_teacher_list")
+	public String teacherlist(@RequestParam(value = "pageNum", required = false, defaultValue = "1") String strNum,
+			Model model){
+		
+		int pageNum = Integer.parseInt(strNum);
+
+		int memberPerPage = 10;
+		ArrayList<teacherBean> list = teacherdao.getList((pageNum - 1) * memberPerPage, memberPerPage);
+		model.addAttribute("list", list);
+		int count = teacherdao.getCount();
+		int pageCount = count / memberPerPage;
+		if (count % memberPerPage > 0) {
+			pageCount++;
+		}
+		model.addAttribute("pageCount", pageCount);
+		model.addAttribute("pageNum", pageNum);
+		
+		
+		return "lesa_teacher_list";		
+	}	
 
 }
