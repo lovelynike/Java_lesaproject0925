@@ -85,14 +85,15 @@
 				<tr>
 					<td>희망 강의 분야</td>
 					<td class="d_radio">
+					<input type="radio" value="computer" id="kategorie4" name="subject">
+						<label for="kategorie4">컴퓨터</label> 
 						<input type="radio" value="game" id="kategorie1" name="subject"> 
 						<label for="kategorie1">게임</label>
 						<input type="radio" value="music" id="kategorie2" name="subject">
 						<label for="kategorie2">음악</label> 
 						<input type="radio" value="sports" id="kategorie3" name="subject"> 
 						<label for="kategorie3">운동</label>
-						<input type="radio" value="computer" id="kategorie4" name="subject">
-						<label for="kategorie4">컴퓨터</label> 
+						
 						<input type="radio" value="cook" id="kategorie5" name="subject"> 
 						<label for="kategorie5">요리</label>
 						<input type="radio" value="arts" id="kategorie6" name="subject">
@@ -214,12 +215,19 @@
 					<td>총 경력기간</td>
 					<td>
 						<select class="input_member input_select" name = "careertime">
-							<option>년수선택</option>
-							<option value="3">3개월</option>
-							<option value="6">6개월</option>
-							<option value="12">1년</option> <!-- for문으로 대체 -->
-							<option value="240">20년</option>
-						</select> &nbsp;이상
+							<option>년선택</option>
+							<% for(int i = 1; i < 41; i++){ %>
+								<option value="<%=i%>"><%=i%>년</option>
+							<%} %>
+							
+						</select> 
+						
+						<select class="input_member input_select" name = "careertime2">
+							<option>월선택</option>
+							<% for(int j = 0; j < 13; j++){ %>
+								<option value="<%=j%>"><%=j%>개월</option>
+							<%} %>
+						</select>
 					</td>
 				</tr>
 				<tr>

@@ -41,7 +41,7 @@ public class HomeController {
 		return "lesa_home";
 	}
 	
-	// plz add teacher add
+	
 
 	
 // ================================ hopelec =======================================================
