@@ -28,6 +28,7 @@ public class HomeController {
 	private memberDao memberdao;
 	@Autowired
 	private teacherDao teacherdao;
+	
 
 	@RequestMapping(value = "/", method = RequestMethod.GET)
 	public String home(Model model) {
@@ -35,7 +36,7 @@ public class HomeController {
 		return "lesa_home";
 	}
 	
-	@RequestMapping("/home")  // 0925 add pull  user                    
+	@RequestMapping("/home")                
 	public String goHome() {		
 		
 		return "lesa_home";
@@ -43,90 +44,6 @@ public class HomeController {
 	
 	
 
-	
-// ================================ hopelec =======================================================
-	@RequestMapping("/hopelec_list")
-	public String list(@RequestParam(value = "pageNum", required = false, defaultValue = "1") String strNum,
-			Model model) {
-
-		int pageNum = Integer.parseInt(strNum);
-
-		int hopelecPerPage = 10;
-		ArrayList<hopelecBean> list = hopelecdao.getList((pageNum - 1) * hopelecPerPage, hopelecPerPage);
-		model.addAttribute("list", list);
-		int count = hopelecdao.getCount();
-		int pageCount = count / hopelecPerPage;
-		if (count % hopelecPerPage > 0) {
-			pageCount++;
-		}
-		model.addAttribute("pageCount", pageCount);
-		model.addAttribute("pageNum", pageNum);
-
-		return "hopelec_list";
-	}
-
-	@RequestMapping("/go_hopelec_insert")                       
-	public String hopelecInsert() {		
-		
-		return "hopelec_insert";
-	}
-
-	
-	@RequestMapping("/hopelec_insert") 
-	public RedirectView hopelecInsert(hopelecBean bean) {
-
-		hopelecdao.insert(bean);
-
-		RedirectView rv = new RedirectView("hopelec_list");
-		rv.setExposeModelAttributes(false);
-		return rv;
-	}
-	
-	@RequestMapping("/hopelec_show")  
-	public String hopelecShow(Model model, int idx) {
-		
-		hopelecBean bean = hopelecdao.get(idx);
-		hopelecdao.setHit(idx);
-		
-		model.addAttribute("hopelecShow", bean);
-		
-		return "hopelec_show";
-	}
-	
-	@RequestMapping("/hopelec_del")  
-	public RedirectView hopelecDel(int idx) {
-		int result = hopelecdao.delete(idx);
-		
-		if (result>0){   
-			System.out.println("delete succeed");			
-		}else {
-			System.out.println("delete bad");	
-		}
-		
-		RedirectView rv = new RedirectView("hopelec_list");
-		rv.setExposeModelAttributes(false);
-		return rv;
-	}
-	
-	@RequestMapping("go_hopelec_update")  
-	public String hopelecUpdate(int idx, Model model) {
-		hopelecBean bean = hopelecdao.get(idx);	
-		
-		model.addAttribute("hopelecUpdate", bean);
-		
-		return "hopelec_update";
-	}
-	
-	@RequestMapping("hopelec_update")
-	public RedirectView hopelecUpdate(hopelecBean bean) {
-
-		hopelecdao.update(bean);
-
-		RedirectView rv = new RedirectView("hopelec_list");
-		rv.setExposeModelAttributes(false);
-		return rv;
-	}
-	
 	
 // ================================ member =======================================================
 	
@@ -174,34 +91,41 @@ public class HomeController {
 		return memberdao.check(id);
 	}
 	
-	//======================= login  ================================================
+//========================================== login  ==================================================
+	
 	@RequestMapping("/go_login")                        
 	public String login() {
 		return "lesa_login";
 	}	
+	@RequestMapping("/go_loginFail")                        
+	public String loginfail() {
+		return "lesa_loginFail";
+	}
 	
 	@RequestMapping(value = "/member_login", method = RequestMethod.POST)
 	public RedirectView memberlogin(memberBean bean, Model model) {
 		String id = bean.getId();
 		String pw = bean.getPw();
 		
-		System.out.println("id: "+bean.getId()+"  pw: "+pw);
+		System.out.println("id: "+id+"  pw: "+pw);
 		
 		boolean result = memberdao.memberLogin(id, pw);
 		
 		if (result){   // result == true
 			model.addAttribute("loginid", id);
 			
-			System.out.println("session good");			
+			System.out.println("session good");	
+			
+			RedirectView rv = new RedirectView("home");
+			rv.setExposeModelAttributes(false);
+			return rv;	
 		}else {
 			System.out.println("session bad");	
-		}		
 			
-		
-		RedirectView rv = new RedirectView("home");
-		rv.setExposeModelAttributes(false);
-		return rv;
-		
+			RedirectView rv = new RedirectView("go_loginFail");
+			rv.setExposeModelAttributes(false);
+			return rv;	
+		}			
 	}
 	
 	@RequestMapping("/lesa_logout")
@@ -214,7 +138,7 @@ public class HomeController {
 		return rv;	
 	}
 	
-	//======================= teacher  ================================================
+//==================================== teacher  ========================================================
 	
 	@RequestMapping("/go_teacher_insert")                        
 	public String teacherInsert(String id, Model model) {
@@ -252,6 +176,103 @@ public class HomeController {
 		
 		
 		return "lesa_teacher_list";		
-	}	
+	}
+	
+	
+// ========================================= map ==================================================	  
+	@RequestMapping("/go_map_view")                        
+	public String mapview() {
+		return "lesa_map_view";
+	}
+	
+// ========================================= field =================================================	  
+	@RequestMapping("/go_field_view")
+	public String fieldview() {
+		return "lesa_field_view";
+	}		
+
+		
+// ======================================== hopelec ================================================
+		@RequestMapping("/hopelec_list")
+		public String list(@RequestParam(value = "pageNum", required = false, defaultValue = "1") String strNum,
+				Model model) {
+
+			int pageNum = Integer.parseInt(strNum);
+
+			int hopelecPerPage = 10;
+			ArrayList<hopelecBean> list = hopelecdao.getList((pageNum - 1) * hopelecPerPage, hopelecPerPage);
+			model.addAttribute("list", list);
+			int count = hopelecdao.getCount();
+			int pageCount = count / hopelecPerPage;
+			if (count % hopelecPerPage > 0) {
+				pageCount++;
+			}
+			model.addAttribute("pageCount", pageCount);
+			model.addAttribute("pageNum", pageNum);
+
+			return "hopelec_list";
+		}
+
+		@RequestMapping("/go_hopelec_insert")
+		public String hopelecInsert() {
+
+			return "hopelec_insert";
+		}
+
+		@RequestMapping("/hopelec_insert")
+		public RedirectView hopelecInsert(hopelecBean bean) {
+
+			hopelecdao.insert(bean);
+
+			RedirectView rv = new RedirectView("hopelec_list");
+			rv.setExposeModelAttributes(false);
+			return rv;
+		}
+
+		@RequestMapping("/hopelec_show")
+		public String hopelecShow(Model model, int idx) {
+
+			hopelecBean bean = hopelecdao.get(idx);
+			hopelecdao.setHit(idx);
+
+			model.addAttribute("hopelecShow", bean);
+
+			return "hopelec_show";
+		}
+
+		@RequestMapping("/hopelec_del")
+		public RedirectView hopelecDel(int idx) {
+			int result = hopelecdao.delete(idx);
+
+			if (result > 0) {
+				System.out.println("delete succeed");
+			} else {
+				System.out.println("delete bad");
+			}
+
+			RedirectView rv = new RedirectView("hopelec_list");
+			rv.setExposeModelAttributes(false);
+			return rv;
+		}
+
+		@RequestMapping("go_hopelec_update")
+		public String hopelecUpdate(int idx, Model model) {
+			hopelecBean bean = hopelecdao.get(idx);
+
+			model.addAttribute("hopelecUpdate", bean);
+
+			return "hopelec_update";
+		}
+
+		@RequestMapping("hopelec_update")
+		public RedirectView hopelecUpdate(hopelecBean bean) {
+
+			hopelecdao.update(bean);
+
+			RedirectView rv = new RedirectView("hopelec_list");
+			rv.setExposeModelAttributes(false);
+			return rv;
+		}
+			
 
 }

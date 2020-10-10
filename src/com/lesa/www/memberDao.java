@@ -58,8 +58,10 @@ public class memberDao {
 			email = email1 +"@"+ email3;
 		}
 		
-		return jdbcTmp.update(insert, bean.getId(), bean.getPw(), bean.getName(), bean.getBday(), bean.getGender(), email,
-				bean.getTel(), bean.getCheck00(), bean.getCheck01(), bean.getCheck02(), bean.getCheck03(), bean.getExtra2(), bean.getExtra3());
+		return jdbcTmp.update(insert, bean.getId(), bean.getPw(), bean.getName(), bean.getBday(), 
+				bean.getGender(), email, bean.getTel(), 
+				bean.getCheck00(), bean.getCheck01(), bean.getCheck02(), bean.getCheck03(), 
+				bean.getExtra2(), bean.getExtra3());
 				
 	}
 
@@ -120,14 +122,27 @@ public class memberDao {
 	private String memberlogin;
 	
 	public boolean memberLogin(String id, String pw){
-		memberBean bean = jdbcTmp.queryForObject(memberlogin, new String[] {id,pw}, new memberBeanMapper());
 		
+		memberBean bean = null;
 		boolean result = false;
 		
-		if(bean.getIdx()>0) {
-			result = true;
-		}	
-		return result;
+		try {
+			bean = jdbcTmp.queryForObject(memberlogin, new String[] {id,pw}, new memberBeanMapper());
+			
+			if(bean.getIdx()>0) {
+				result = true;
+				System.out.println("idx: "+ bean.getIdx());
+			}else {
+				System.out.println("result: " + result);
+			}
+			return result;
+			
+		} catch (Exception e) {
+			System.out.println("eeeeee: "+ e);
+			
+			return result;			
+		}		
+		
 	} // end of method memberLogin
 
 }

@@ -55,7 +55,7 @@
 					<th>비밀번호</th>
 					<td>
 						
-						<input type="password" class="input_member" name="pw">
+						<input type="password" class="input_member" name="pw" id="pw">
 						<span>8~16자리 영문, 숫자 입력</span>
 					</td>
 				</tr>
@@ -63,7 +63,7 @@
 					<th>비밀번호 확인</th>
 					<td>
 						
-						<input type="password" class="input_member" name="pw2">
+						<input type="password" class="input_member" name="pw2" id="pw2">
 					</td>
 				<tr>
 					<th>이름</th>
@@ -183,7 +183,22 @@
 				}
 			});
 		});
-		
+
+
+		//비번 같은지 확인
+		$(function() {
+
+			
+			$('#pw2').blur(function() {
+				if ($('#pw').val() != $('#pw2').val()) {
+					if ($('#pw2').val() != '') {
+						alert("비밀번호가 일치하지 않습니다.");
+						$('#pw2').val('');
+						$('#pw2').focus();
+					}
+				}
+			})
+		});
 	</script>
 
 

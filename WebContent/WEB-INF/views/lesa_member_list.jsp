@@ -42,7 +42,7 @@
 		<td>pw</td><td>name</td>
 		<td>Bday</td><td>gender</td>
 		<td>email</td><td>tel</td>
-		<td>Nsubject</td><td>date</td>
+		<td>date</td>
 		<td>photo</td>
 		<td>check00</td><td>check01</td>
 		<td>check02</td><td>check03</td>
@@ -61,7 +61,7 @@
 				
 			<td>${memberlist.email}</td> 
 			<td>${memberlist.tel}</td>	
-			<td>${memberlist.nsubject}</td>
+			
 			<td>${memberlist.rdate}</td>
 			<td>${memberlist.photo}</td>
 			

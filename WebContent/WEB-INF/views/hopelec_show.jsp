@@ -8,10 +8,9 @@
 <meta charset="UTF-8">
 <title>Insert title here</title>
 <style>
-	*{
-		text-align: center;
-	}
+	
  	table{
+ 		text-align: center;
 		width:1000px;
 		border-collapse: collapse;
 		margin-left: 500px;
