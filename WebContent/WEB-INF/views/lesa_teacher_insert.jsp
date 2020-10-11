@@ -9,7 +9,10 @@
 <meta http-equiv="Content-Type" content="text/html; charset=euc-kr">
 <script src='https://code.jquery.com/jquery-2.2.4.min.js'></script>
 <!-- <link href="css/teacher_insert.css" rel="stylesheet" type="text/css"> -->
-<title>Insert title here</title>
+
+
+
+<title>lesa_teacher_insert</title>
 <style>
 	* {
 		margin: 0;
@@ -33,7 +36,7 @@
 	
 	${loginid} 님 반갑습니다 강사 등록 하러 오셨어요?
 	
-<form action="teacherinsertok.do" name="frm">
+<form action="teacher_insert" method="post" name="frm">
 	
 	
 		<h2 class="title_sub">기본정보</h2>
@@ -48,17 +51,23 @@
 						<input type="file" name="photo">
 						<input type="button" value="수정" class="btn_in_update">
 						<input type="button" value="삭제" class="btn_in_delete">
-						<p>※ 예시)사진은 1M이하의 png, jpg 파일만 가능하며, 사진은 114x134에 최적화 되어 있습니다.</p>
+						<!-- <p>※ 예시)사진은 1M이하의 png, jpg 파일만 가능하며, 사진은 114x134에 최적화 되어 있습니다.</p> -->
 					</td>
 				</tr>
 				<tr>
 					<td>이름</td>
 					<td>${getmemId.name }</td>
 				</tr>
-				<tr>
+				<!-- <tr>
 					<td>주소</td>
-					<td>부산 동래구 안락동</td>
-				</tr>
+					<td>
+					    <input type="text" id="sample6_postcode" placeholder="우편번호">
+						<input type="button" onclick="sample6_execDaumPostcode()" value="우편번호 찾기"><br>
+						<input type="text" id="sample6_address" placeholder="주소" required>
+						<input type="text" id="sample6_detailAddress" placeholder="상세주소">
+						<input type="text" id="sample6_extraAddress" > 
+					</td>
+				</tr> -->
 				<tr>
 					<td>전화번호</td>
 					<td>${getmemId.tel }</td>
@@ -70,7 +79,11 @@
 				</tr>
 			</tbody>
 		</table>
-	
+
+
+
+
+
 		<h2 class="title_sub">강사 정보</h2>
 		
 		<table class="write_tb">
@@ -79,7 +92,7 @@
 				<tr>
 					<td>강의 제목</td>
 					<td>
-						<input type="text" style="width: 500px" name="teachtitle">
+						<input type="text" style="width: 500px" name="teachtitle" required>
 					</td>
 				</tr>
 				<tr>
@@ -232,7 +245,8 @@
 				</tr>
 				<tr>
 					<td>경력사항</td>
-					<td class="career">근무처명&nbsp;
+					<td class="career">
+					         근무처명&nbsp;
 						<input type="text" class="title input_member" style="width: 300px" name="workplace">
 						직급&nbsp;
 						<input type="text" class="title input_member" style="width: 100px;" name="position"><br>
@@ -266,24 +280,68 @@
 		
 		<div class="btn_area">
 			<input type="hidden" name="id" value = "${loginid}">
-			<input type="button" value="강사등록" class="btn_ok" onclick="reg()">
-			<input type="reset" value="취소" class="btn_cancel">
+			<input type="submit" value="강사등록" />
+			<input type="reset" value="취소" />
 		</div>
 	
 </form>
 
 
-	<script>
-	function reg(){	
-		frm.action="teacher_insert";			
-		frm.submit();
-	}
+<!-- 주소 관련
+<script src="https://t1.daumcdn.net/mapjsapi/bundle/postcode/prod/postcode.v2.js"></script>
+<script>
+    function sample6_execDaumPostcode() {
+        new daum.Postcode({
+            oncomplete: function(data) {
+                // 팝업에서 검색결과 항목을 클릭했을때 실행할 코드를 작성하는 부분.
+
+                // 각 주소의 노출 규칙에 따라 주소를 조합한다.
+                // 내려오는 변수가 값이 없는 경우엔 공백('')값을 가지므로, 이를 참고하여 분기 한다.
+                var addr = ''; // 주소 변수
+                var extraAddr = ''; // 참고항목 변수
+
+                //사용자가 선택한 주소 타입에 따라 해당 주소 값을 가져온다.
+                if (data.userSelectedType === 'R') { // 사용자가 도로명 주소를 선택했을 경우
+                    addr = data.roadAddress;
+                } else { // 사용자가 지번 주소를 선택했을 경우(J)
+                    addr = data.jibunAddress;
+                }
+
+                // 사용자가 선택한 주소가 도로명 타입일때 참고항목을 조합한다.
+                if(data.userSelectedType === 'R'){
+                    // 법정동명이 있을 경우 추가한다. (법정리는 제외)
+                    // 법정동의 경우 마지막 문자가 "동/로/가"로 끝난다.
+                    if(data.bname !== '' && /[동|로|가]$/g.test(data.bname)){
+                        extraAddr += data.bname;
+                    }
+                    // 건물명이 있고, 공동주택일 경우 추가한다.
+                    if(data.buildingName !== '' && data.apartment === 'Y'){
+                        extraAddr += (extraAddr !== '' ? ', ' + data.buildingName : data.buildingName);
+                    }
+                    // 표시할 참고항목이 있을 경우, 괄호까지 추가한 최종 문자열을 만든다.
+                    if(extraAddr !== ''){
+                        extraAddr = ' (' + extraAddr + ')';
+                    }
+                    // 조합된 참고항목을 해당 필드에 넣는다.
+                    document.getElementById("sample6_extraAddress").value = extraAddr;
+                
+                } else {
+                    document.getElementById("sample6_extraAddress").value = '';
+                }
+
+                // 우편번호와 주소 정보를 해당 필드에 넣는다.
+                document.getElementById('sample6_postcode').value = data.zonecode;
+                document.getElementById("sample6_address").value = addr;
+                // 커서를 상세주소 필드로 이동한다.
+                document.getElementById("sample6_detailAddress").focus();
+            }
+        }).open();
+    }
+</script> -->
+
 
 	
-	
-	</script>
-	
-		<script>
+<script>
 		$(document).ready(function() {
 			$(".job").hide();			
 			$(".area").hide();
@@ -365,7 +423,9 @@
 				$(".money").prop("disabled", false);
 			}
 		}
-		</script>
+
+		
+</script>
 	
 
 

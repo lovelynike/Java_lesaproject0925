@@ -7,26 +7,7 @@
 <script src='https://code.jquery.com/jquery-2.2.4.min.js'></script>
 <!-- <link href="css/class.css" rel="stylesheet" type="text/css"> -->
 <title>LESA_field_view</title>
-<style>
-* {
-	margin: 0;
-	padding: 0;
-	font-family: 'NotoKR', Sans-serif;
-	font-size: 14px;
-	line-height: 1.2;
-	font-weight: 300;
-	letter-spacing: -0.05em;
-}
 
-a {
-	color: #000;
-}
-
-.contents {
-	width: 1200px;
-	margin: 0 auto;
-}
-</style>
 </head>
 <body>
 

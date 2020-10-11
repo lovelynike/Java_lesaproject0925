@@ -28,7 +28,7 @@
 			<ul class="nav-go">
 				<li><a href="home" class="fieldview">분야별 선생님</a></li>
 				<li><a href="go_map_view" class="mapview">지역별 선생님</a></li>
-				<li><a href="hopelec_list" class="hopelecview">강의 요청</a></li>
+				<li><a href="hopelec_list" class="hopelecview">강의 개설 요청</a></li>
 				<li><a href="go_field_view" class="fieldview">수강 후기</a></li>
 			</ul>
 		

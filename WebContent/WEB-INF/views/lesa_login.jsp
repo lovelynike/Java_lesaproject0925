@@ -10,7 +10,7 @@
 <style>
 .popup_login {
 	border: 1px solid black;
-	margin: 0 auto;
+	margin: 100px auto;
 	width: 400px;
 	text-align: center;
 }
